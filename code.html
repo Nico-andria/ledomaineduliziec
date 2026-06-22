@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="fr" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>La Table du Liziec | Restaurant Gastronomique 1 Étoile Michelin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#131313",
+                        "on-tertiary": "#31312d",
+                        "secondary-container": "#66411b",
+                        "on-primary-fixed-variant": "#604105",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#e2ae7f",
+                        "primary": "#eebf7a",
+                        "error-container": "#93000a",
+                        "heritage-gold": "#B88E4E",
+                        "surface-dim": "#131313",
+                        "surface-container-highest": "#353535",
+                        "primary-fixed": "#ffddb0",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-fixed": "#281800",
+                        "on-tertiary-fixed-variant": "#474743",
+                        "on-secondary-fixed": "#2d1600",
+                        "on-tertiary-fixed": "#1c1c18",
+                        "on-secondary-fixed-variant": "#633f19",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary-container": "#2e2e2a",
+                        "surface-tint": "#eebf7a",
+                        "tertiary-fixed-dim": "#c9c6c1",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "surface-container": "#20201f",
+                        "on-primary": "#442c00",
+                        "surface": "#131313",
+                        "tertiary-fixed": "#e5e2dc",
+                        "on-surface": "#e5e2e1",
+                        "primary-fixed-dim": "#eebf7a",
+                        "surface-variant": "#353535",
+                        "on-surface-variant": "#d2c4b4",
+                        "deep-charcoal": "#1A1A1A",
+                        "antique-cream": "#F9F6F0",
+                        "outline": "#9b8f80",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "on-secondary": "#492905",
+                        "secondary-fixed": "#ffdcbf",
+                        "secondary": "#f1bc8c",
+                        "surface-bright": "#393939",
+                        "on-background": "#e5e2e1",
+                        "burnished-copper": "#8C6239",
+                        "tertiary-container": "#979590",
+                        "tertiary": "#c9c6c1",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-container": "#402900",
+                        "outline-variant": "#4f4539",
+                        "primary-container": "#b88e4e",
+                        "secondary-fixed-dim": "#f1bc8c",
+                        "inverse-primary": "#7b581d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "24px",
+                        "unit": "8px",
+                        "gutter": "32px",
+                        "max-width": "1440px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["montserrat"],
+                        "label-caps": ["montserrat"],
+                        "body-sm": ["montserrat"],
+                        "headline-lg-mobile": ["EB Garamond"],
+                        "headline-md": ["EB Garamond"],
+                        "headline-lg": ["EB Garamond"],
+                        "headline-sm": ["EB Garamond"],
+                        "headline-display": ["EB Garamond"],
+                        "body-md": ["montserrat"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .parallax-bg {
+            position: absolute;
+            top: -20%;
+            left: 0;
+            width: 100%;
+            height: 140%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 0;
+            will-change: transform;
+        }
+        .relief-card {
+            background: linear-gradient(145deg, #20201f, #131313);
+            box-shadow: 10px 10px 30px #0a0a0a, -2px -2px 15px rgba(42, 42, 42, 0.4);
+            border: 1px solid rgba(184, 142, 78, 0.1);
+            transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+        .relief-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 20px 25px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(184, 142, 78, 0.05);
+            border-color: rgba(184, 142, 78, 0.3);
+        }
+        .michelin-star {
+            color: #e61e26;
+            filter: drop-shadow(0 0 5px rgba(230, 30, 38, 0.3));
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+        .michelin-star:hover {
+            filter: drop-shadow(0 0 10px rgba(230, 30, 38, 0.6));
+            transform: scale(1.1);
+        }
+        .glass-effect {
+            background: rgba(19, 19, 19, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(184, 142, 78, 0.2);
+        }
+        .text-gold-gradient {
+            background: linear-gradient(to right, #B88E4E, #eebf7a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .button-raised {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: all 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .button-raised::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: 0.5s;
+        }
+        .button-raised:hover::after {
+            left: 100%;
+        }
+        .button-raised:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(184, 142, 78, 0.25);
+        }
+
+        /* TubeLight Navbar */
+        .tube-nav {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            background: rgba(19, 19, 19, 0.8);
+            backdrop-filter: blur(12px);
+            border-radius: 9999px;
+            padding: 8px 12px;
+            border: 1px solid rgba(184, 142, 78, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .tube-nav-link {
+            padding: 8px 16px;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            position: relative;
+            color: #d2c4b4;
+        }
+        .tube-nav-link:hover {
+            color: #eebf7a;
+        }
+        .tube-nav-link.active {
+            color: #eebf7a;
+            background: rgba(184, 142, 78, 0.1);
+        }
+        .tube-nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #eebf7a;
+            box-shadow: 0 0 8px #eebf7a;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            will-change: transform, opacity;
+        }
+        /* Carousel Styles */
+        .carousel-container {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .carousel-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        /* Floating depth elements */
+        .depth-element {
+            position: absolute;
+            pointer-events: none;
+            z-index: 15;
+            filter: blur(2px);
+        }
+
+        /* Staggered Testimonials */
+        .testimonial-card {
+            transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1), opacity 0.6s ease;
+        }
+        .testimonial-card:nth-child(1) { transform: rotate(-2deg) translateY(20px); }
+        .testimonial-card:nth-child(2) { transform: rotate(1deg) translateY(0); }
+        .testimonial-card:nth-child(3) { transform: rotate(-1deg) translateY(30px); }
+        
+        @media (min-width: 768px) {
+            .testimonial-card:nth-child(1) { transform: rotate(-3deg) translateY(40px); }
+            .testimonial-card:nth-child(2) { transform: rotate(2deg) translateY(-20px); }
+            .testimonial-card:nth-child(3) { transform: rotate(-2deg) translateY(60px); }
+        }
+    </style>
+</head>
+<body class="font-body-md overflow-x-hidden">
+<!-- TubeLight Navigation -->
+<nav class="tube-nav hidden md:flex">
+<div class="px-4 border-r border-heritage-gold/20 mr-2">
+<span class="font-headline-sm text-sm text-heritage-gold tracking-widest uppercase">Liziec</span>
+</div>
+<div class="flex items-center space-x-1">
+<a class="tube-nav-link font-label-caps text-[10px] active" href="#experience">Experience</a>
+<a class="tube-nav-link font-label-caps text-[10px]" href="#chef">Chef</a>
+<a class="tube-nav-link font-label-caps text-[10px]" href="#menus">Menus</a>
+<a class="tube-nav-link font-label-caps text-[10px]" href="#wine">Wine Bar</a>
+<a class="tube-nav-link font-label-caps text-[10px]" href="#contact">Contact</a>
+</div>
+<div class="ml-4 pl-4 border-l border-heritage-gold/20">
+<button class="bg-heritage-gold text-on-primary-container px-4 py-1.5 rounded-full font-label-caps text-[10px] tracking-widest hover:brightness-110 transition-all">
+            Reservations
+        </button>
+</div>
+</nav>
+<!-- Mobile Nav Placeholder (Simple) -->
+<nav class="md:hidden fixed top-0 w-full z-[101] p-4 flex justify-between items-center glass-effect border-b border-heritage-gold/10">
+<span class="font-headline-sm text-heritage-gold uppercase tracking-widest text-sm">La Table du Liziec</span>
+<button class="text-heritage-gold"><span class="material-symbols-outlined">menu</span></button>
+</nav>
+<!-- 1. Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+<!-- Carousel Background -->
+<div class="carousel-container">
+<div class="carousel-slide" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOqQWAtcDYkvS3VOMPMNdEX9lZedXnZ37sAPVUDi5iFLh0fSdHLSMlQllPrBya9pmI8VDqqqGj1zkU-gL0NGJJ9orVBaW5EUSjRFvceF0xbqFtT7h_Hfeq_uwP1nqppq4k0M2amwdftBX19EbqlGNw_4YaedGdG50EX4Cp_--09fAw005OFInPQn0DQwA2xuNGoDSanwNcBH7uDmOOBkqgFcjzze-B3hvsPxDQCruIlNdqa5wjzTzZmzlN_slBiY4GSmzN883n2TWQ");'></div>
+<div class="carousel-slide active" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAqv-l0ndfU0UvpXZdoIAMMNIZf8xl_tM7z57XgDphDB3VFLaiL1IImw32DCGwMKvITZ2MyG3BFBJJQU9GIdDLImaCazA4diaA8aI6ONMmP4813F8LlNmK8pjGhiwouIgWAxQ8MTR9DUUKqRdB81IYE02oCPME_i7JgHgD2X0Uez0H7U0li5ADyy1HdtJy0ax-dgjBfuXOFayzTGktzoCjx-iCccv-IeaZfXTU7335oqep_xSe_q42MIgCAhST0VKudbxIYisVBnrJ0");'></div>
+<div class="carousel-slide" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDI95DcfDw96yKhs7C4s1Fqfv4smWDDGxzadXQU6wqBdT3uofCEE766espKj8PBNG412_kHUO_yOmJFKGNZxlS4SNTtPmhB_mshRV9MsXb3ULYPYimL0LxwK5VwwZ9OBxePQLSlA02wA8BtVAaZhRIbUimV0UI4mOaS3w4A_Te8Z849vWA4IwYtZVzBHTsANzI3K3_RXFuRAonRCJJwbdMUcrg8IsYrB2i-HickBth9nVWiptWAgIttsZz81QqwwziTjBAwg1DuSh8_");'></div>
+<div class="absolute inset-0 bg-black/50 z-10"></div>
+<div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-background to-transparent z-20"></div></div>
+<!-- Depth Elements (Subtle floating shapes) -->
+<div class="depth-element top-1/4 -left-10 w-40 h-40 border border-heritage-gold/20 rotate-45 animate-pulse"></div>
+<div class="depth-element bottom-1/4 -right-10 w-60 h-60 border border-heritage-gold/10 -rotate-12"></div>
+<div class="relative z-20 max-w-5xl mx-auto px-margin-mobile text-center">
+<div class="space-y-unit flex flex-col items-center">
+<div class="flex items-center space-x-2 mb-6 group stagger-hero" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<span class="material-symbols-outlined michelin-star text-2xl" style='font-variation-settings: "FILL" 1;'>hotel_class</span>
+<span class="font-label-caps text-label-caps text-heritage-gold text-lg tracking-[0.2em]">Guide Michelin 2024</span>
+</div>
+<h1 class="font-headline-display text-headline-display text-white mb-10 leading-tight stagger-hero drop-shadow-2xl" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+                Restaurant gastronomique <br/>
+<span class="text-gold-gradient italic font-light">1 étoile Michelin</span> à Vannes
+            </h1>
+<div class="flex flex-col md:flex-row gap-8 mt-12 stagger-hero" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<button class="bg-heritage-gold text-on-primary-container px-12 py-5 font-label-caps text-label-caps tracking-widest button-raised text-body-md uppercase">
+                    Réserver une table
+                </button>
+<button class="border-2 border-white/80 text-white hover:bg-white/10 px-12 py-5 font-label-caps text-label-caps tracking-widest transition-all text-body-md uppercase backdrop-blur-sm shadow-xl">
+                    Découvrir les menus
+                </button>
+</div></div>
+</div>
+</section>
+<!-- 2. L'expérience -->
+<section class="py-32 bg-background relative overflow-hidden" id="experience"><div class="absolute -top-20 -right-20 w-[600px] h-[600px] opacity-[0.05] pointer-events-none z-0 rotate-12 overflow-hidden">{{DATA:DOCUMENT:DOCUMENT_19}}</div><div class="absolute -top-20 -right-20 w-[600px] h-[600px] opacity-[0.04] pointer-events-none z-0 rotate-12 overflow-hidden">{{DATA:DOCUMENT:DOCUMENT_4}}</div>
+<div class="max-w-max-width mx-auto px-margin-desktop grid md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-6 relative z-10 space-y-gutter scroll-reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<h2 class="font-headline-lg text-headline-lg text-heritage-gold leading-tight">
+                Une expérience culinaire et sensorielle au Domaine du Liziec
+            </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                Dans l'écrin majestueux du Domaine du Liziec, chaque service est une chorégraphie. Nous célébrons le terroir breton avec une audace contemporaine, où le geste précis rencontre l'émotion brute.
+            </p>
+<div class="pt-8">
+<a class="inline-flex items-center space-x-4 group" href="#">
+<span class="font-label-caps text-label-caps text-heritage-gold tracking-widest uppercase">En savoir plus</span>
+<span class="material-symbols-outlined text-heritage-gold group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-6 mt-12 md:mt-0 relative scroll-reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<div class="relief-card relative z-20 overflow-hidden transform md:translate-x-12" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px);">
+<img alt="Plateau de dégustation raffiné" class="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXODuCGwnaOWK0Eg8qexjNmoJmz1njzbCItBAy-Q5tX9MbiDSb2vNa5d-r7oYOH-I-yxPJqPX5yDnzcfLEGW7Q7XHAruO6vIG3jbFizBUgIjJuMZGjIAxX2lhMmKZ4wNwWfcpJmQKMl_cyk5yUViGp4Kr7-JX5t9RbXgy8jssEwvsBq_ECdt9WN_szFw3RWEvNR-WiT6EuB75AHbVeZh8yqr0CqZ5YhtLrJYK72UrdjbQadg3Kep2ZP0d9tUiHFGz6sGe9ct4iE9MC"/>
+</div><div class="absolute -bottom-10 -left-10 w-64 h-64 border border-heritage-gold/20 z-0"></div>
+</div></div>
+</section>
+<!-- 3. Chef Olivier Samson - Restyled Section -->
+<section class="min-h-screen relative items-center overflow-hidden bg-surface-container-lowest p-0" id="chef">
+<div class="absolute inset-0 z-0">
+<img alt="Chef Olivier Samson" class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx9JtJd-vM0rUH2cFWjAP4a9aVldwejDkoEOiELfV7AP36F3f3mAazyVg8a9zcdGO_9PseTML28VaB4KpGCxsGD72QVRLPNGTjSiQo3EawbxJRCFlUmFlr1RHbNQ5nWs0-yYJadumjLSlDkgrNB8wOZLA2DSNZaI_ATqV2dWhXpNhvjsbtdVVnojTJxBvm3pkeBJlBtgzd66vnCmDsSHqmJKJjyyhDF5DsCnZ2kR7ihObSJq72aeQKn9NeQ9Ho-xs4823l6QhV6aCe"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-black/80 md:bg-gradient-to-l md:from-surface-container-lowest md:via-transparent md:to-transparent"></div>
+</div>
+<div class="relative z-10 mx-auto px-margin-desktop w-full grid md:grid-cols-12 gap-gutter">
+<div class="md:col-span-5 flex flex-col justify-center space-y-10 py-20 scroll-reveal md:col-start-8 items-start" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<div class="space-y-4 text-left">
+<span class="font-label-caps text-label-caps text-heritage-gold tracking-[0.4em] uppercase text-xs">Maitre de Cérémonie</span>
+<h2 class="font-headline-lg text-headline-lg text-white leading-tight">Le Chef Olivier Samson</h2>
+<div class="w-20 h-0.5 bg-heritage-gold"></div>
+</div>
+<div class="space-y-6 text-left">
+<p class="font-body-lg text-body-lg text-on-surface italic leading-relaxed">
+                    "Ma cuisine est un dialogue constant entre la terre et la mer, une quête perpétuelle de l'équilibre parfait entre tradition et avant-garde."
+                </p>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                    À la tête de La Table du Liziec, Olivier Samson insuffle une vision poétique du terroir breton. Chaque ingrédient est choisi pour sa noblesse et sa vérité, transformé avec une technicité millimétrée récompensée par une étoile au Guide Michelin.
+                </p>
+</div>
+<div class="pt-6">
+<button class="border border-heritage-gold text-heritage-gold px-10 py-4 font-label-caps text-label-caps tracking-widest hover:bg-heritage-gold hover:text-on-primary transition-all uppercase button-raised">
+                    Explorer sa philosophie
+                </button>
+</div>
+</div></div>
+</section>
+<!-- 4. Cartes et Menus -->
+<section class="py-32 bg-surface-container-low" id="menus"><div class="absolute -bottom-40 -left-20 w-[800px] h-[800px] opacity-[0.03] pointer-events-none z-0 -rotate-12 overflow-hidden">{{DATA:DOCUMENT:DOCUMENT_4}}</div>
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<div class="text-center mb-20 scroll-reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;"><h2 class="font-headline-lg text-headline-lg text-primary">Nos Cartes &amp; Menus</h2><p class="font-label-caps text-label-caps text-antique-cream tracking-[0.3em] mt-4 uppercase">Saisonnalité &amp; Créativité</p></div><div class="grid md:grid-cols-3 gap-gutter"><!-- Menu Dégustation -->
+<div class="glass-effect relief-card group cursor-pointer flex flex-col h-full scroll-reveal">
+<div class="relative h-64 overflow-hidden">
+<img alt="Menu Dégustation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdwDbat05Bu2vxavda9Sy4F46fAKUvN5C9QPcOOXSO1Fs_Byq326vL-X9PyCmGHrybXbAwXVps_aiunDB_dyIl4cP-cf0asuzNVLmZ6o8K5sOfKS0EYtr27RtWXrubT_LWimnz_nnIOm2Ab6dz2NU53pMbod-YOvXnLkYrDc0iWkBxxEurfeZeSg6O-xx9tqJX8Ai9crcsgo4dz-mMfKpRY8k7pXZVpGcBZPhW-s9yyecLAP3zJ9f0dnWStsq2mChibwQ6l-Bc17cn"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow text-center">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Menu Dégustation</h3>
+<p class="font-body-sm text-body-sm text-on-surface mb-6">L'expression ultime de notre savoir-faire en 7 services.</p>
+<div class="mt-auto pt-4 flex flex-col items-center">
+<span class="font-headline-sm text-primary mb-4">155 €</span>
+<button class="bg-heritage-gold text-on-primary px-8 py-2 font-label-caps text-[10px] tracking-widest hover:brightness-110 transition-all uppercase rounded-full">Voir ce menu</button>
+</div>
+</div>
+</div>
+<!-- Menu Déjeuner -->
+<div class="glass-effect relief-card group cursor-pointer flex flex-col h-full md:-translate-y-8 scroll-reveal">
+<div class="relative h-64 overflow-hidden">
+<img alt="Menu Déjeuner" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpRXqcQIWw6JGLzTkEYuXtNfPymkUAWMpKhk3OmkvOsRRvqTpjmpym9tmihaj2KmK7nwzPzd7mVIYL2uzDWd1l5EUUEkGMUbsp3F1dPSCZBcTxF_SVlJ5_6TLI5PKpSzajgLHE6oG7KhgHrp3aiGO8N2D1pRA47q8rQ1GRLekVKino4KYCqPY-fwQ6eR9BN34dYeGYeGS-U2SqvIGnoGiTrB_ehNx1QN-peGqkZxAR_dJOsHiNX0MnB8VEuUNCFneqp6uooN-h3k04"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow text-center">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Menu Déjeuner</h3>
+<p class="font-body-sm text-body-sm text-on-surface mb-6">Une escale gourmande et rythmée au coeur de Vannes.</p>
+<div class="mt-auto pt-4 flex flex-col items-center">
+<span class="font-headline-sm text-primary mb-4">65 €</span>
+<button class="bg-heritage-gold text-on-primary px-8 py-2 font-label-caps text-[10px] tracking-widest hover:brightness-110 transition-all uppercase rounded-full">Voir ce menu</button>
+</div>
+</div>
+</div>
+<!-- La Cave -->
+<div class="glass-effect relief-card group cursor-pointer flex flex-col h-full scroll-reveal">
+<div class="relative h-64 overflow-hidden">
+<img alt="La Cave" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRtqr6EJSKCA0fOliRrcWZJ2QcgkwMm1qcDp8iQ3lJugHUheZ0PgYn9Dj5KEHuJZ7_jkRPwq48tZz0CJ6f3BsdJDnwqks9pxP1HQcXXKlkcyO73BZRI4CM8gRqI99PQ7T3omdEU7cLSIP9gYjG0dp0y7WKTddX-bCbKq18py5OEAfxG9n8fA4asMQoG0EPNiZb6sqLpG2YJyuzX3f-ybnvnEwI3Bf2CBn6C5OWI5Ff94UpmYHdXK1Yo78d9XnZ8lltJSxmvPBYIaFe"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow text-center">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">La Cave</h3>
+<p class="font-body-sm text-body-sm text-on-surface mb-6">Plus de 400 références sélectionnées par notre sommelier.</p>
+<div class="mt-auto pt-4 flex flex-col items-center">
+<span class="font-headline-sm text-primary mb-4">À la Carte</span>
+<button class="bg-heritage-gold text-on-primary px-8 py-2 font-label-caps text-[10px] tracking-widest hover:brightness-110 transition-all uppercase rounded-full">Voir la carte</button>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<!-- 5. Bar à Vin -->
+<section class="h-[70vh] relative flex items-center parallax-section" id="wine">
+<div class="parallax-bg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBNu6v7UNVZXQmyayDE4WCH_QKsQbRTsQ136ZzxiXR05R3zYvINlx88c8Htfkowu_mIDNJi58Le9DrjLnrTNwzDy-tfZoa-couPUrwWfabFREL0O-eN5f5xDQxdmTWZdFiTqapwnv-uAKVxzuGfTA8k2EmovNq_usIv8q6m00DIPQEBag9ay5Y0vcJ1mCCccsVrhS3xYq3JOW7w8HhMPUxfx3ih63v2B6UjeC4BtpYNpbfoYesv-gJE2INGLdwFMs5X7JBlivxIAD1d"); translate: none; rotate: none; scale: none; transform: translate3d(0px, -3.7764%, 0px);'></div><div class="absolute inset-0 bg-black/40 z-[1]"></div>
+<div class="max-w-max-width mx-auto px-margin-desktop w-full relative z-10 scroll-reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<div class="md:w-1/2 glass-effect p-12 md:p-16 space-y-6 rounded-xl">
+<span class="font-label-caps text-label-caps text-heritage-gold uppercase tracking-[0.2em]">Détente &amp; Dégustation</span>
+<h2 class="font-headline-lg text-headline-lg text-white">Le Bar à Vin</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                Un espace intimiste pour découvrir des crus d'exception accompagnés de mets délicats. L'endroit idéal pour débuter ou conclure votre voyage gastronomique.
+            </p>
+<div class="pt-4">
+<button class="bg-heritage-gold text-on-primary-container px-8 py-3 font-label-caps text-label-caps tracking-widest button-raised uppercase">Découvrir le bar</button>
+</div>
+</div>
+</div></section>
+<!-- 6. Staggered Testimonials Section -->
+<section class="py-32 bg-background overflow-hidden">
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<div class="text-center mb-24 scroll-reveal" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<h2 class="font-headline-lg text-headline-lg text-heritage-gold">Témoignages</h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant tracking-[0.4em] mt-4 uppercase">L'Émotion Partagée</p>
+</div><div class="grid md:grid-cols-3 gap-12 md:gap-gutter pb-16">
+<!-- Card 1 -->
+<!-- Card 2 -->
+<div class="testimonial-card relief-card p-10 space-y-6 scroll-reveal flex flex-col justify-between" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0;">
+<div class="space-y-4">
+<div class="flex text-heritage-gold">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+</div>
+<p class="font-body-md text-on-surface italic leading-relaxed">"Une précision millimétrée dans les saveurs. Le Chef Samson sublime la Bretagne avec une élégance rare. Un moment hors du temps."</p>
+</div>
+<div class="border-t border-heritage-gold/20 pt-6">
+<p class="font-label-caps text-label-caps text-heritage-gold uppercase tracking-widest">— Jean-Pierre D.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="testimonial-card relief-card p-10 space-y-6 scroll-reveal flex flex-col justify-between" style="transition-delay: 0.15s; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0;">
+<div class="space-y-4">
+<div class="flex text-heritage-gold">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+</div>
+<p class="font-body-md text-on-surface italic leading-relaxed">"L'accueil est à la hauteur de l'assiette. Le sommelier a su nous faire découvrir des pépites locales insoupçonnées, parfaitement accordées aux plats."</p>
+</div>
+<div class="border-t border-heritage-gold/20 pt-6">
+<p class="font-label-caps text-label-caps text-heritage-gold uppercase tracking-widest">— Sophie M.</p>
+</div>
+</div>
+<div class="testimonial-card relief-card p-10 space-y-6 scroll-reveal flex flex-col justify-between" style="transition-delay: 0.3s; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 0;">
+<div class="space-y-4">
+<div class="flex text-heritage-gold">
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+<span class="material-symbols-outlined" style='font-variation-settings: "FILL" 1;'>star</span>
+</div>
+<p class="font-body-md text-on-surface italic leading-relaxed">"Une expérience sensorielle complète. De la vaisselle à la décoration, tout respire le luxe discret et le bon goût absolu."</p>
+</div>
+<div class="border-t border-heritage-gold/20 pt-6">
+<p class="font-label-caps text-label-caps text-heritage-gold uppercase tracking-widest">— Marc L.</p>
+</div>
+</div></div>
+</div>
+</section>
+<!-- 7. Infos Pratiques -->
+<section class="py-32 bg-surface-container-low" id="contact">
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<div class="grid md:grid-cols-4 gap-gutter mb-16">
+<!-- Address -->
+<!-- Hours -->
+<div class="relief-card p-8 flex flex-col items-center text-center scroll-reveal rounded-xl" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<span class="material-symbols-outlined text-heritage-gold mb-4" style="font-size: 32px;">location_on</span>
+<h4 class="font-label-caps text-label-caps text-white mb-2 uppercase tracking-widest">Adresse</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Domaine du Liziec<br/>56000 Vannes, Bretagne</p>
+</div>
+<!-- Phone -->
+<div class="relief-card p-8 flex flex-col items-center text-center scroll-reveal rounded-xl" style="transition-delay: 0.1s; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<span class="material-symbols-outlined text-heritage-gold mb-4" style="font-size: 32px;">schedule</span>
+<h4 class="font-label-caps text-label-caps text-white mb-2 uppercase tracking-widest">Horaires</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mar - Sam<br/>12h-14h / 19h30-22h</p>
+</div>
+<!-- Email -->
+<div class="relief-card p-8 flex flex-col items-center text-center scroll-reveal rounded-xl" style="transition-delay: 0.2s; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<span class="material-symbols-outlined text-heritage-gold mb-4" style="font-size: 32px;">call</span>
+<h4 class="font-label-caps text-label-caps text-white mb-2 uppercase tracking-widest">Téléphone</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">+33 (0)2 97 XX XX XX</p>
+</div>
+<div class="relief-card p-8 flex flex-col items-center text-center scroll-reveal rounded-xl" style="transition-delay: 0.3s; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<span class="material-symbols-outlined text-heritage-gold mb-4" style="font-size: 32px;">mail</span>
+<h4 class="font-label-caps text-label-caps text-white mb-2 uppercase tracking-widest">Email</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">table@domaineliziec.fr</p>
+</div></div>
+<div class="flex flex-col items-center scroll-reveal space-y-16" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+<div class="flex space-x-12 opacity-80 filter grayscale hover:grayscale-0 transition-all duration-1000 items-center">
+<img alt="Michelin Logo" class="h-16 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtipFmU3D5mmrHtcAxYCcYm2nQPAXA4evewp8PquMRk9wg7RfPB00FEYvApNgFIVulzWems0YDOPIq9U-T5tD9hEGQ5Lt3HkDZX-Ui0VMKRsVgC0NdR2pySqbra4jPS5zHDcBAaSSskRTSk0mbVU3cuUXVgsCvT7wxzVmazm3pY7O7JAnq4VPkURsZqN4kKFe_Wu_OdGmLyUlyOMJ2S4nXc9MvvbDwp7zW5Qx9l_clXPiQC4bBWjkx_x9GcSmjlBvX0D_2xDABqCN_"/>
+<img alt="Gault &amp; Millau Logo" class="h-12 opacity-50 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi5qAS92_9pdEp3sOdnGzWpztiOo2FaCpZliPro1ESOlHjwPORDLZM6TrbiFaXM7F2U0xEHAzOjgNwenyZ8xUatlfC6Vg7oPgD5lsaVKyqbmZHXcG-IuUzMXOVwZGRXur3OC8sp3edj9Pn4ZFHO1_celrKjlWGLja7kOXUqbpnfhPMVNJgiYreDy494BEbWI831DCFf2t5HKCFIU33ZSa3gOgCiFutSbXbt9qJke_dq4FUfrUqcrSO0-hhSE1xW4g9Og8S3m_Mjx-1"/>
+</div>
+<button class="bg-heritage-gold text-on-primary-container px-16 py-5 font-label-caps text-label-caps tracking-widest text-lg button-raised uppercase">
+        Réserver une table
+    </button>
+</div></div>
+</section>
+<!-- 8. Footer -->
+<footer class="bg-surface-container-lowest py-20 border-t border-heritage-gold/10">
+<div class="flex flex-col items-center justify-center space-y-gutter px-margin-desktop text-center">
+<div class="font-headline-md text-headline-md text-heritage-gold mb-unit uppercase tracking-[0.2em]">
+            La Table du Liziec
+        </div>
+<div class="flex flex-wrap justify-center gap-x-gutter gap-y-4 max-w-2xl">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase" href="#">Mentions Légales</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase" href="#">Confidentialité</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase" href="#">Presse</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase" href="#">Carrières</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors uppercase" href="#">Contact</a>
+</div>
+<div class="flex space-x-8 pt-8">
+<a class="text-on-surface-variant hover:text-heritage-gold transition-colors" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<a class="text-on-surface-variant hover:text-heritage-gold transition-colors" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-10">
+            © 2024 La Table du Liziec. Domaine du Liziec. All rights reserved.
+        </p>
+</div>
+</footer>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Carousel
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    setInterval(nextSlide, 5000);
+
+    // Tube Navbar Scroll Effects
+    const navLinks = document.querySelectorAll('.tube-nav-link');
+    window.addEventListener('scroll', () => {
+        let current = "";
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 120) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Parallax Effect for Backgrounds
+    gsap.utils.toArray('.parallax-section').forEach(section => {
+        const bg = section.querySelector('.parallax-bg');
+        if (bg) {
+            gsap.fromTo(bg, {
+                y: "-15%"
+            }, {
+                y: "15%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        }
+    });
+
+    // Hero staggered reveal
+    gsap.from('.stagger-hero', {
+        opacity: 0,
+        y: 60,
+        stagger: 0.2,
+        duration: 1.5,
+        ease: "expo.out"
+    });
+
+    // Scroll Reveal Animations
+    gsap.utils.toArray('.scroll-reveal').forEach((el, i) => {
+        gsap.to(el, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.2,
+            ease: "expo.out",
+            scrollTrigger: {
+                trigger: el,
+                start: "top 90%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+    // Experience section image slide
+    gsap.to('.md\\:translate-x-12', {
+        x: 0,
+        scrollTrigger: {
+            trigger: '#experience',
+            start: "top bottom",
+            end: "top top",
+            scrub: 1
+        }
+    });
+
+    // Staggered Testimonials Animation
+    gsap.utils.toArray('.testimonial-card').forEach((card, i) => {
+        gsap.from(card, {
+            opacity: 0,
+            y: 100,
+            rotation: i % 2 === 0 ? -5 : 5,
+            duration: 1.5,
+            ease: "power4.out",
+            scrollTrigger: {
+                trigger: card,
+                start: "top 95%",
+                toggleActions: "play none none none"
+            }
+        });
+    });
+
+</script>
+</body></html>

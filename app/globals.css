@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-on-surface font-sans;
+    overflow-x: hidden;
+  }
+
+  /* Respecte les préférences d'accessibilité (réduction du mouvement) */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* ============================================================
+   COMPOSANTS — profondeur, relief, glassmorphism (cf. DESIGN.md)
+   ============================================================ */
+@layer components {
+  /* Carte en relief : double ombre néomorphique + fine bordure or */
+  .relief-card {
+    background: linear-gradient(145deg, #20201f, #131313);
+    box-shadow: theme("boxShadow.relief");
+    border: 1px solid rgba(184, 142, 78, 0.1);
+    transition:
+      transform 0.5s cubic-bezier(0.2, 0, 0.2, 1),
+      box-shadow 0.5s cubic-bezier(0.2, 0, 0.2, 1),
+      border-color 0.5s ease;
+  }
+  .relief-card:hover {
+    transform: translateY(-8px);
+    box-shadow: theme("boxShadow.relief-hover");
+    border-color: rgba(184, 142, 78, 0.3);
+  }
+
+  /* Surface vitrée (navbar, overlays sur image) */
+  .glass-effect {
+    background: rgba(19, 19, 19, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(184, 142, 78, 0.2);
+  }
+
+  /* Texte en dégradé "métal doré" */
+  .text-gold-gradient {
+    background: linear-gradient(to right, #b88e4e, #eebf7a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Bouton "relief" avec balayage lumineux au survol */
+  .button-raised {
+    box-shadow: theme("boxShadow.raised");
+    transition: all 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .button-raised::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: 0.5s;
+  }
+  .button-raised:hover::after {
+    left: 100%;
+  }
+  .button-raised:hover {
+    transform: translateY(-3px);
+    box-shadow: theme("boxShadow.raised-hover");
+  }
+}
+
+/* ============================================================
+   UTILITAIRES SPÉCIFIQUES
+   ============================================================ */
+@layer utilities {
+  /* Étoile Michelin (rouge signature) */
+  .michelin-star {
+    color: #e61e26;
+    filter: drop-shadow(0 0 5px rgba(230, 30, 38, 0.3));
+  }
+
+  /* Connecteur pointillé pour les listes de menu (style carte imprimée) */
+  .dotted-leader {
+    border-bottom: 1px dotted rgba(184, 142, 78, 0.4);
+  }
+}
