@@ -1,20 +1,31 @@
 import type { Metadata, Viewport } from "next";
-import { EB_Garamond, Montserrat } from "next/font/google";
+import { Cormorant_Garamond, Jost, Cinzel } from "next/font/google";
 import "./globals.css";
+import { PageLoader } from "@/components/ui/PageLoader";
 
-/* Fonts via next/font (self-hosted, zéro requête vers Google Fonts) */
-const ebGaramond = EB_Garamond({
+/* Fonts via next/font (self-hosted, zéro requête vers Google Fonts)
+   - Cormorant Garamond : serif à fort contraste, signature « fine dining ».
+   - Jost : sans géométrique racé, idéal pour les labels en capitales espacées.
+   - Cinzel : capitales romaines gravées, réservées au CTA de réservation. */
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
-  variable: "--font-eb-garamond",
+  variable: "--font-serif",
   display: "swap",
 });
 
-const montserrat = Montserrat({
+const jost = Jost({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-montserrat",
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -99,13 +110,14 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`dark ${ebGaramond.variable} ${montserrat.variable}`}
+      className={`dark ${cormorant.variable} ${jost.variable} ${cinzel.variable}`}
     >
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <PageLoader />
         {children}
       </body>
     </html>

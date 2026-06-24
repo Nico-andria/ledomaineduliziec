@@ -1,11 +1,12 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { ExperienceSection } from "@/components/sections/ExperienceSection";
+import { IntroSection } from "@/components/sections/IntroSection";
+// import { ExperienceSection } from "@/components/sections/ExperienceSection"; // désactivée
 import { ChefSection } from "@/components/sections/ChefSection";
 import { MenusSection } from "@/components/sections/MenusSection";
 import { WineBarSection } from "@/components/sections/WineBarSection";
 import { ReviewsSection } from "@/components/sections/ReviewsSection";
-import { InfoSection } from "@/components/sections/InfoSection";
+import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { FooterSection } from "@/components/sections/FooterSection";
 
 /**
@@ -18,12 +19,15 @@ export function RestaurantLandingPage() {
       <Navbar />
       <main>
         <HeroSection />
-        <ExperienceSection />
-        <ChefSection />
+        {/* Section « Expérience » désactivée pour le moment (inutile à ce stade).
+            Réactiver en décommentant la ligne ci-dessous. */}
+        {/* <ExperienceSection /> */}
         <MenusSection />
+        <ChefSection />
+        <IntroSection />
         <WineBarSection />
         <ReviewsSection />
-        <InfoSection />
+        <FinalCtaSection />
       </main>
       <FooterSection />
     </>

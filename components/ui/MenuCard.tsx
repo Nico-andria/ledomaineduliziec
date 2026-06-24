@@ -1,4 +1,5 @@
 import type { MenuItem } from "@/lib/content";
+import { PrimaryButton } from "@/components/ui/Button";
 
 /**
  * Carte de menu (Dégustation, Déjeuner, Cave...).
@@ -7,11 +8,11 @@ import type { MenuItem } from "@/lib/content";
 export function MenuCard({ menu }: { menu: MenuItem }) {
   return (
     <article
-      className={`glass-effect relief-card group flex h-full flex-col rounded-xl ${
+      className={`glass-effect relief-card-static group flex h-full flex-col rounded-xl ${
         menu.offset ? "md:-translate-y-8" : ""
       }`}
     >
-      <div className="relative h-64 overflow-hidden rounded-t-xl">
+      <div className="relative h-52 overflow-hidden rounded-t-xl sm:h-64">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={menu.image}
@@ -33,7 +34,7 @@ export function MenuCard({ menu }: { menu: MenuItem }) {
         </div>
       </div>
 
-      <div className="flex flex-grow flex-col p-8 text-center">
+      <div className="flex flex-grow flex-col p-6 text-center sm:p-8">
         <h3 className="mb-2 font-serif text-headline-sm text-primary">
           {menu.title}
         </h3>
@@ -44,12 +45,7 @@ export function MenuCard({ menu }: { menu: MenuItem }) {
           <span className="mb-4 font-serif text-headline-sm text-primary">
             {menu.price}
           </span>
-          <button
-            type="button"
-            className="rounded-full bg-heritage-gold px-8 py-2 font-sans text-[10px] uppercase tracking-widest text-on-primary transition-all hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-          >
-            {menu.cta}
-          </button>
+          <PrimaryButton href={menu.ctaHref}>{menu.cta}</PrimaryButton>
         </div>
       </div>
     </article>

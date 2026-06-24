@@ -61,20 +61,28 @@ const config: Config = {
       },
       fontFamily: {
         // Pilotés par next/font (variables CSS définies dans app/layout.tsx)
-        serif: ["var(--font-eb-garamond)", "Georgia", "serif"],
-        sans: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        // serif : Cormorant Garamond · sans : Jost · display : Cinzel (CTA)
+        serif: ["var(--font-serif)", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
       },
       fontSize: {
         "headline-display": [
-          "clamp(2.5rem, 6vw, 4rem)", // 40px -> 64px (responsive)
+          "clamp(1.75rem, 7vw, 4rem)", // 28px -> 64px : 2 lignes en mobile, plus présent
           { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400" },
         ],
         "headline-lg": [
-          "clamp(2rem, 4vw, 3rem)", // 32px -> 48px
+          "clamp(1.75rem, 5vw, 3rem)", // 28px -> 48px
           { lineHeight: "1.2", fontWeight: "400" },
         ],
-        "headline-md": ["2rem", { lineHeight: "1.3", fontWeight: "500" }],
-        "headline-sm": ["1.5rem", { lineHeight: "1.4", fontWeight: "500" }],
+        "headline-md": [
+          "clamp(1.4rem, 4.5vw, 2rem)", // ~22px -> 32px
+          { lineHeight: "1.25", fontWeight: "500" },
+        ],
+        "headline-sm": [
+          "clamp(1.25rem, 3.5vw, 1.5rem)", // 20px -> 24px
+          { lineHeight: "1.4", fontWeight: "500" },
+        ],
         "body-lg": ["1.125rem", { lineHeight: "1.6", fontWeight: "400" }],
         "body-md": ["1rem", { lineHeight: "1.6", fontWeight: "400" }],
         "body-sm": ["0.875rem", { lineHeight: "1.5", fontWeight: "400" }],

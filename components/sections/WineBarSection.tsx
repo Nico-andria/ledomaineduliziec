@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { WINE } from "@/lib/content";
+import { WINE, ROUTES } from "@/lib/content";
 import { PrimaryButton } from "@/components/ui/Button";
 
 /* ============================================================
@@ -40,7 +40,7 @@ export function WineBarSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="glass-effect space-y-6 rounded-xl p-10 md:w-1/2 md:p-16"
+          className="glass-effect space-y-6 rounded-xl p-6 sm:p-10 md:w-1/2 md:p-16"
         >
           <span className="font-sans text-label-caps uppercase tracking-[0.2em] text-heritage-gold">
             {WINE.kicker}
@@ -50,7 +50,7 @@ export function WineBarSection() {
             {WINE.text}
           </p>
           <div className="pt-4">
-            <PrimaryButton href="#contact" className="px-8 py-3">
+            <PrimaryButton href={ROUTES.barAVin}>
               {WINE.cta}
             </PrimaryButton>
           </div>

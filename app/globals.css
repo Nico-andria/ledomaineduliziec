@@ -12,7 +12,10 @@
 
   body {
     @apply bg-background text-on-surface font-sans;
-    overflow-x: hidden;
+    /* `clip` (et non `hidden`) : empêche le scroll horizontal SANS créer de
+       conteneur de défilement, ce qui casserait les `position: sticky`
+       (carousels mobiles pilotés au scroll). */
+    overflow-x: clip;
   }
 
   /* Respecte les préférences d'accessibilité (réduction du mouvement) */
@@ -45,6 +48,21 @@
   }
   .relief-card:hover {
     transform: translateY(-8px);
+    box-shadow: theme("boxShadow.relief-hover");
+    border-color: rgba(184, 142, 78, 0.3);
+  }
+
+  /* Variante sans soulèvement : la carte ne se déplace pas au survol
+     (seuls l'ombre et la bordure réagissent). Utilisée pour les cartes de menu. */
+  .relief-card-static {
+    background: linear-gradient(145deg, #20201f, #131313);
+    box-shadow: theme("boxShadow.relief");
+    border: 1px solid rgba(184, 142, 78, 0.1);
+    transition:
+      box-shadow 0.5s cubic-bezier(0.2, 0, 0.2, 1),
+      border-color 0.5s ease;
+  }
+  .relief-card-static:hover {
     box-shadow: theme("boxShadow.relief-hover");
     border-color: rgba(184, 142, 78, 0.3);
   }

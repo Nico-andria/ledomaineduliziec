@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion, type Variants } from "framer-motion";
-import { HERO, RESERVATION_HREF } from "@/lib/content";
+import { HERO, RESERVATION_HREF, ROUTES } from "@/lib/content";
 import { PrimaryButton, SecondaryButton } from "@/components/ui/Button";
-import { StarIcon } from "@/components/ui/Icon";
 
 /* ============================================================
    1. HERO — carrousel plein écran + titre animé en cascade
@@ -32,7 +31,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative flex h-screen items-center justify-center overflow-hidden pt-20">
+    <section className="relative flex h-dvh items-center justify-center overflow-hidden pt-20">
       {/* Carrousel de fond (cross-fade) */}
       <div className="absolute inset-0 z-0" aria-hidden>
         {HERO.slides.map((src, i) => (
@@ -45,8 +44,11 @@ export function HeroSection() {
             }}
           />
         ))}
-        <div className="absolute inset-0 z-10 bg-black/50" />
-        <div className="absolute bottom-0 left-0 z-20 h-40 w-full bg-gradient-to-t from-background to-transparent" />
+        {/* Voile noir renforcé pour la lisibilité du texte du hero */}
+        <div className="absolute inset-0 z-10 bg-black/65" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
+        {/* Dégradé de transition : le hero se fond dans la section suivante */}
+        <div className="absolute bottom-0 left-0 z-20 h-64 w-full bg-gradient-to-t from-surface-container-low via-background/70 to-transparent" />
       </div>
 
       {/* Formes flottantes (profondeur) */}
@@ -60,16 +62,9 @@ export function HeroSection() {
         animate="visible"
         className="relative z-20 mx-auto flex max-w-5xl flex-col items-center px-margin-mobile text-center"
       >
-        <motion.div variants={item} className="mb-6 flex items-center space-x-2">
-          <StarIcon className="michelin-star" width={28} height={28} />
-          <span className="font-sans text-lg uppercase tracking-[0.2em] text-heritage-gold">
-            {HERO.badge}
-          </span>
-        </motion.div>
-
         <motion.h1
           variants={item}
-          className="mb-10 font-serif text-headline-display leading-tight text-white drop-shadow-2xl"
+          className="mb-6 text-balance font-serif text-[clamp(2.25rem,8.5vw,5rem)] tracking-[-0.02em] leading-tight text-white drop-shadow-2xl sm:mb-10"
         >
           {HERO.titleLine1} <br />
           <span className="text-gold-gradient font-light italic">
@@ -80,10 +75,16 @@ export function HeroSection() {
 
         <motion.div
           variants={item}
-          className="mt-8 flex flex-col gap-6 md:flex-row md:gap-8"
+          className="mt-2 flex flex-col gap-4 sm:mt-8 md:flex-row md:gap-8"
         >
-          <PrimaryButton href={RESERVATION_HREF}>{HERO.ctaPrimary}</PrimaryButton>
-          <SecondaryButton href="#menus">{HERO.ctaSecondary}</SecondaryButton>
+          <PrimaryButton
+            href={RESERVATION_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {HERO.ctaPrimary}
+          </PrimaryButton>
+          <SecondaryButton href={ROUTES.carte}>{HERO.ctaSecondary}</SecondaryButton>
         </motion.div>
       </motion.div>
     </section>
