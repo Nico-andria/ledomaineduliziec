@@ -1,7 +1,4 @@
 {
-  "/page": "app/page.js",
-  "/le-chef/page": "app/le-chef/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/bar-a-vin/page": "app/bar-a-vin/page.js",
-  "/la-carte/page": "app/la-carte/page.js"
+  "/la-carte/page": "app/la-carte/page.js",
+  "/page": "app/page.js"
 }

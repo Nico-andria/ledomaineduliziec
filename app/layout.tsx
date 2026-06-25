@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Jost, Cinzel } from "next/font/google";
 import "./globals.css";
 import { PageLoader } from "@/components/ui/PageLoader";
+import { FloatingReservationCta } from "@/components/ui/FloatingReservationCta";
 
 /* Fonts via next/font (self-hosted, zéro requête vers Google Fonts)
    - Cormorant Garamond : serif à fort contraste, signature « fine dining ».
@@ -119,6 +120,7 @@ export default function RootLayout({
         />
         <PageLoader />
         {children}
+        <FloatingReservationCta />
       </body>
     </html>
   );

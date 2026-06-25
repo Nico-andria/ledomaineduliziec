@@ -31,7 +31,10 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative flex h-dvh items-center justify-center overflow-hidden pt-20">
+    <section
+      id="hero"
+      className="relative flex h-dvh items-center justify-center overflow-hidden pt-20"
+    >
       {/* Carrousel de fond (cross-fade) */}
       <div className="absolute inset-0 z-0" aria-hidden>
         {HERO.slides.map((src, i) => (
@@ -64,13 +67,20 @@ export function HeroSection() {
       >
         <motion.h1
           variants={item}
-          className="mb-6 text-balance font-serif text-[clamp(2.25rem,8.5vw,5rem)] tracking-[-0.02em] leading-tight text-white drop-shadow-2xl sm:mb-10"
+          className="mb-6 font-serif text-[clamp(2.25rem,8.5vw,5rem)] tracking-[-0.02em] leading-tight text-white drop-shadow-2xl sm:mb-10 md:text-balance"
         >
-          {HERO.titleLine1} <br />
-          <span className="text-gold-gradient font-light italic">
+          {/* Mobile : 3 lignes distinctes (taille par ligne pour que la 1re tienne
+              sur une seule ligne) — Desktop : rendu d'origine via les overrides md:. */}
+          <span className="block whitespace-nowrap text-[clamp(1.5rem,6.8vw,5rem)] md:inline md:whitespace-normal md:text-inherit">
+            {HERO.titleLine1}
+          </span>{" "}
+          <br className="hidden md:inline" />
+          <span className="text-gold-gradient block font-light italic text-[clamp(2.5rem,10.5vw,5rem)] md:inline md:text-inherit">
             {HERO.titleAccent}
           </span>{" "}
-          {HERO.titleLine2}
+          <span className="block text-[clamp(2.5rem,10.5vw,5rem)] md:inline md:text-inherit">
+            {HERO.titleLine2}
+          </span>
         </motion.h1>
 
         <motion.div
