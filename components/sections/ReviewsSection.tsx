@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { TESTIMONIALS, REVIEWS, type Testimonial } from "@/lib/content";
 import { StarIcon, ArrowRightIcon } from "@/components/ui/Icon";
-import { MobileScrollCarousel } from "@/components/ui/MobileScrollCarousel";
+import { MobileCarousel } from "@/components/ui/MobileCarousel";
 
 /* ============================================================
    6. TÉMOIGNAGES — fond doré, cartes sombres (couleurs inversées).
@@ -79,18 +79,17 @@ export function ReviewsSection() {
         </div>
       </div>
 
-      {/* Mobile : carousel piloté au scroll. La carte remplit la hauteur du
-          panneau (contenu réparti haut/bas) pour supprimer le vide doré autour. */}
-      <MobileScrollCarousel className="md:hidden">
+      {/* Mobile : carousel à contrôles manuels (flèches + points) */}
+      <MobileCarousel className="md:hidden" tone="dark">
         {TESTIMONIALS.map((t) => (
           <figure
             key={t.author}
-            className="relief-card flex min-h-[78svh] flex-col justify-center gap-8 rounded-xl p-8"
+            className="relief-card flex min-h-[26rem] flex-col justify-between gap-8 rounded-xl p-8"
           >
             <TestimonialBody t={t} />
           </figure>
         ))}
-      </MobileScrollCarousel>
+      </MobileCarousel>
 
       <div className="mx-auto max-w-content px-margin-mobile md:px-margin-desktop">
         {/* CTA vers la plateforme d'avis */}

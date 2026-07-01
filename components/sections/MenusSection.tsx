@@ -2,7 +2,7 @@ import { MENUS } from "@/lib/content";
 import { Reveal } from "@/components/ui/Reveal";
 import { Watermark } from "@/components/ui/Watermark";
 import { MenuCard } from "@/components/ui/MenuCard";
-import { MobileScrollCarousel } from "@/components/ui/MobileScrollCarousel";
+import { MobileCarousel } from "@/components/ui/MobileCarousel";
 
 /* ============================================================
    4. MENUS — 3 cartes en relief, l'une décalée (asymétrie)
@@ -36,12 +36,12 @@ export function MenusSection() {
         </div>
       </div>
 
-      {/* Mobile : carousel piloté au scroll (cartes sans effet d'apparition) */}
-      <MobileScrollCarousel className="md:hidden">
+      {/* Mobile : carousel à contrôles manuels (flèches + points) */}
+      <MobileCarousel className="mt-4 md:hidden" tone="light">
         {MENUS.map((menu) => (
           <MenuCard key={menu.title} menu={menu} />
         ))}
-      </MobileScrollCarousel>
+      </MobileCarousel>
     </section>
   );
 }
